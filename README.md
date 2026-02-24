@@ -1,8 +1,3 @@
-# DrinksWebAPI
-
-A .NET 10 console application that interacts with [TheCocktailDB API](https://www.thecocktaildb.com/) 
-to browse drink categories and view detailed cocktail recipes.
-
 ## 📖 Project Description
 
 DrinksWebAPI is an interactive console application that allows users to:
@@ -22,6 +17,7 @@ DrinksWebAPI is an interactive console application that allows users to:
 - [.NET 10 SDK](https://dotnet.microsoft.com/download) or later
 
 ### Steps
+
 - cd DrinksWebAPI
 - dotnet build
 - dotnet run
@@ -37,19 +33,17 @@ DrinksWebAPI is an interactive console application that allows users to:
 
 ### What Was Hard?
 
-- **API Response Mapping**:
-  TheCocktailDB API returns ingredients as separate numbered properties, requiring individual property mapping in the `DrinkDetail` model.
-- **Input Validation**:
-  Handling edge cases for user input while keeping the console experience smooth required careful design of the `InputHelper` class with retry logic.
+- individual property mapping in the `DrinkDetail` model.
+- required careful design of the `InputHelper` class with retry logic.
 
 ### What Was Easy?
 
-- **HTTP Client Integration**: .NET's `HttpClient` and `System.Text.Json` made consuming the REST API straightforward with minimal boilerplate.
-- **Project Structure**: Separating concerns into `Models`, `Services`, and `Validation` folders followed natural patterns and kept the codebase organized.
+- .NET's HttpClient and System.Text.Json made consuming the REST API easy
+- Separating of concerns followed natural patterns and kept the codebase organized.
 
 ### What I Learned
 
 - How to consume external REST APIs using `HttpClient` and deserialize JSON responses
-- Implementing clean separation between API logic (`DrinksApiService`) and presentation (`Program.cs`)
+- Implementing clean separation between API logic and presentation
 - Building reusable input validation helpers for console applications
 - Proper error handling for network requests with `try-catch` blocks
