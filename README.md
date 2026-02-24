@@ -1,6 +1,7 @@
 # DrinksWebAPI
 
-A .NET 10 console application that interacts with [TheCocktailDB API](https://www.thecocktaildb.com/) to browse drink categories and view detailed cocktail recipes.
+A .NET 10 console application that interacts with [TheCocktailDB API](https://www.thecocktaildb.com/) 
+to browse drink categories and view detailed cocktail recipes.
 
 ## 📖 Project Description
 
@@ -21,10 +22,9 @@ DrinksWebAPI is an interactive console application that allows users to:
 - [.NET 10 SDK](https://dotnet.microsoft.com/download) or later
 
 ### Steps
-
- - cd DrinksWebAPI
- - dotnet build
- - dotnet run
+- cd DrinksWebAPI
+- dotnet build
+- dotnet run
 
 ### Usage
 
@@ -37,8 +37,10 @@ DrinksWebAPI is an interactive console application that allows users to:
 
 ### What Was Hard?
 
-- **API Response Mapping**: TheCocktailDB API returns ingredients as separate numbered properties (`strIngredient1`, `strIngredient2`, etc.) rather than an array, requiring individual property mapping in the `DrinkDetail` model.
-- **Input Validation**: Handling edge cases for user input while keeping the console experience smooth required careful design of the `InputHelper` class with retry logic.
+- **API Response Mapping**:
+  TheCocktailDB API returns ingredients as separate numbered properties, requiring individual property mapping in the `DrinkDetail` model.
+- **Input Validation**:
+  Handling edge cases for user input while keeping the console experience smooth required careful design of the `InputHelper` class with retry logic.
 
 ### What Was Easy?
 
