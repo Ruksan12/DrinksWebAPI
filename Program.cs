@@ -11,7 +11,7 @@ while (true)
 
     Console.WriteLine("Pick a category (or type '0' to quit):");
     for (int i = 0; i < categories.Count; i++)
-        Console.WriteLine($"[{i + 1}] {categories[i].strCategory}");
+        Console.WriteLine($"[{i + 1}] {categories[i].StrCategory}");
 
     var choice = InputHelper.GetValidChoice(0, categories.Count);
     if (choice == null)
@@ -24,18 +24,18 @@ while (true)
     if (choice == 0)
         break;
 
-    string picked = categories[choice.Value - 1].strCategory;
+    string picked = categories[choice.Value - 1].StrCategory;
     var drinks = await api.GetDrinksByCategoryAsync(picked);
 
     Console.Clear();
     Console.WriteLine($"\nPick a drink from {picked}:");
     for (int i = 0; i < drinks.Count; i++)
-        Console.WriteLine($"[{i + 1}] {drinks[i].strDrink}");
+        Console.WriteLine($"[{i + 1}] {drinks[i].StrDrink}");
 
     int choice2 = InputHelper.GetValidChoiceWithRetry(1, drinks.Count,
         $"Please enter a number between 1 and {drinks.Count}:");
 
-    var drink = await api.GetDrinkDetailAsync(drinks[choice2 - 1].idDrink);
+    var drink = await api.GetDrinkDetailAsync(drinks[choice2 - 1].IdDrink);
     if (drink == null)
     {
         Console.WriteLine("Could not retrieve drink details.");
@@ -44,18 +44,18 @@ while (true)
 
     Console.Clear();
 
-    Console.WriteLine($"\n── {drink.strDrink} ──");
-    Console.WriteLine($"Category:     {drink.strCategory}");
-    Console.WriteLine($"Alcoholic:    {drink.strAlcoholic}");
-    Console.WriteLine($"Glass:        {drink.strGlass}");
-    Console.WriteLine($"Instructions: {drink.strInstructions}");
+    Console.WriteLine($"\n── {drink.StrDrink} ──");
+    Console.WriteLine($"Category:     {drink.StrCategory}");
+    Console.WriteLine($"Alcoholic:    {drink.StrAlcoholic}");
+    Console.WriteLine($"Glass:        {drink.StrGlass}");
+    Console.WriteLine($"Instructions: {drink.StrInstructions}");
     Console.WriteLine("\nIngredients:");
-    if (!string.IsNullOrEmpty(drink.strIngredient1))
-        Console.WriteLine($"  {drink.strMeasure1} {drink.strIngredient1}");
-    if (!string.IsNullOrEmpty(drink.strIngredient2))
-        Console.WriteLine($"  {drink.strMeasure2} {drink.strIngredient2}");
-    if (!string.IsNullOrEmpty(drink.strIngredient3))
-        Console.WriteLine($"  {drink.strMeasure3} {drink.strIngredient3}");
+    if (!string.IsNullOrEmpty(drink.StrIngredient1))
+        Console.WriteLine($"  {drink.StrMeasure1} {drink.StrIngredient1}");
+    if (!string.IsNullOrEmpty(drink.StrIngredient2))
+        Console.WriteLine($"  {drink.StrMeasure2} {drink.StrIngredient2}");
+    if (!string.IsNullOrEmpty(drink.StrIngredient3))
+        Console.WriteLine($"  {drink.StrMeasure3} {drink.StrIngredient3}");
 
     Console.WriteLine("\nPress Enter to continue...");
     Console.ReadLine();

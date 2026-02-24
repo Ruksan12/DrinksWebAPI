@@ -4,16 +4,16 @@ public class ApiResponses
 {
     public class CategoryResponse
     {
-        public List<Category> drinks { get; set; }
+        public List<Category> Drinks { get; set; }
     }
     public class DrinkResponse
     {
-        public List<Drink> drinks { get; set; }
+        public List<Drink> Drinks { get; set; }
     }
 
     public class DetailResponse
     {
-        public List<DrinkDetail> drinks { get; set; }
+        public List<DrinkDetail> Drinks { get; set; }
 
     }
 }

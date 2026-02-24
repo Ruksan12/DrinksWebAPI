@@ -2,17 +2,17 @@
 
 public class DrinkDetail
 {
-    public string strDrink { get; set; }
-    public string strCategory { get; set; }
-    public string strAlcoholic { get; set; }
-    public string strGlass { get; set; }
-    public string strInstructions { get; set; }
-    public string strIngredient1 { get; set; }
-    public string strIngredient2 { get; set; }
-    public string strIngredient3 { get; set; }
-    public string strMeasure1 { get; set; }
-    public string strMeasure2 { get; set; }
-    public string strMeasure3 { get; set; }
+    public string StrDrink { get; set; }
+    public string StrCategory { get; set; }
+    public string StrAlcoholic { get; set; }
+    public string StrGlass { get; set; }
+    public string StrInstructions { get; set; }
+    public string StrIngredient1 { get; set; }
+    public string StrIngredient2 { get; set; }
+    public string StrIngredient3 { get; set; }
+    public string StrMeasure1 { get; set; }
+    public string StrMeasure2 { get; set; }
+    public string StrMeasure3 { get; set; }
 }
 
 

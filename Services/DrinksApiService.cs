@@ -8,6 +8,11 @@ public class DrinksApiService
 {
     private readonly HttpClient _client;
     private const string BaseURL = "https://www.thecocktaildb.com/api/json/v1/1";
+    private static readonly JsonSerializerOptions _jsonOptions = new()
+    {
+        PropertyNameCaseInsensitive = true
+    };
+
 
     public DrinksApiService(HttpClient client)
     {
@@ -19,8 +24,8 @@ public class DrinksApiService
         try
         {
             var json = await _client.GetStringAsync($"{BaseURL}/list.php?c=list");
-            var response = JsonSerializer.Deserialize<CategoryResponse>(json);
-            return response?.drinks ?? [];
+            var response = JsonSerializer.Deserialize<CategoryResponse>(json, _jsonOptions);
+            return response?.Drinks ?? [];
         }
         catch (HttpRequestException ex)
         {
@@ -35,8 +40,8 @@ public class DrinksApiService
         {
             var encoded = Uri.EscapeDataString(category);
             var json = await _client.GetStringAsync($"{BaseURL}/filter.php?c={encoded}");
-            var response = JsonSerializer.Deserialize<DrinkResponse>(json);
-            return response?.drinks ?? [];
+            var response = JsonSerializer.Deserialize<DrinkResponse>(json, _jsonOptions);
+            return response?.Drinks ?? [];
         }
         catch (HttpRequestException ex)
         {
@@ -50,8 +55,8 @@ public class DrinksApiService
         try
         {
             var json = await _client.GetStringAsync($"{BaseURL}/lookup.php?i={id}");
-            var response = JsonSerializer.Deserialize<DetailResponse>(json);
-            return response?.drinks?.FirstOrDefault();
+            var response = JsonSerializer.Deserialize<DetailResponse>(json, _jsonOptions);
+            return response?.Drinks?.FirstOrDefault();
         }
         catch (HttpRequestException ex)
         {
