@@ -1,3 +1,5 @@
+# DrinksWebAPI
+
 ## 📖 Project Description
 
 DrinksWebAPI is an interactive console application that allows users to:
